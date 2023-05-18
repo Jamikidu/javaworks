@@ -4,7 +4,7 @@ public class Switchcase2 {
 
 	public static void main(String[] args) {
 		// case문 동시에 사용하기
-		int month = 0;	//'월'을 저장할 변수
+		int month = 5;	//'월'을 저장할 변수
 		int day = 0;	//'일'을 저장할 변수
 		
 		switch(month){
@@ -22,7 +22,7 @@ public class Switchcase2 {
 			return;  //프로그램자체가 즉시 종료(밑에 구문도 출력안됨)
 		}
 		System.out.println(month + "월은 " + day + "일까지 있습니다.");
-		System.out.printf(month + "월은 " + day + "일까지 있습니다.");
+		System.out.printf("%d월은 %d일까지 있습니다.", month, day);
 
 	}
 
