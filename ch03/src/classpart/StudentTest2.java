@@ -1,10 +1,11 @@
 package classpart;
 
+
 public class StudentTest2 {
 
 	public static void main(String[] args) {
 		// Student 클래스 사용
-		//std1 - 객체, 객체변수, 인스턴스, 오브젝트
+		//std1 - 객체, 객체변수, 인스턴스, 오브젝트, 참조변수
 		
 		Student std1 = new Student(101, "김산");
 		std1.showInfo();
@@ -12,6 +13,7 @@ public class StudentTest2 {
 		Student std2 = new Student(102, "이강");
 		std2.showInfo();
 		
+		System.out.println(std1);
 
 	}
 
