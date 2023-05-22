@@ -1,8 +1,8 @@
-package ifexample;
+package forexample;
 
 import java.util.Scanner;
 
-public class Seat {
+public class SeatLayout {
 
 	public static void main(String[] args) {
 		// 입장객 수에 따라 좌석을 배치하는 프로그램을 작성
@@ -28,19 +28,19 @@ public class Seat {
 		
 		for(int i=0; i<rowNum; i++) {
 			for(int j=1; j<=colNum; j++) {
-				int num =colNum*i + j;  //5는 col(열)의 종료값
-				if(num > customer) {
-					break;
+				int num =colNum*i + j;
+				if(num > customer) {break;}
+				else if(num<=9) {
+					System.out.print("좌석0"+ num + " ");
+				}else {
+					System.out.print("좌석" + num + " ");
 				}
-				System.out.print(num + " ");
+				
 			}
 			System.out.println();
 		}
-		
-
-		
 		sc.close();
-		
+
 	}
 
 }
