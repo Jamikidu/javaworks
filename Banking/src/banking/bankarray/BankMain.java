@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BankMain {
 	// 통장 계좌를 만들 객체 배열 100개 생성
-	static Account[] accountArray = new Account[100];
+	static Account[] accountArray = new Account[100];  // 전역에 위치(배열)
 	static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -23,6 +23,10 @@ public class BankMain {
 				createAccount();
 			}else if(selectNo == 2) {  //계좌 목록
 				getAccountList();
+			}else if(selectNo == 3) {  //예금
+				deposit();
+			}else if(selectNo == 4) {  //출금
+				withdraw();
 			}
 			else if(selectNo == 5) {
 				run = false;
@@ -34,6 +38,7 @@ public class BankMain {
 
 	}//main() 끝
 	
+
 	//계좌를 생성하는 함수
 	private static void createAccount() {
 		System.out.println("-------------------------------------------");
@@ -53,7 +58,8 @@ public class BankMain {
 		//accountArray[0] = new Account(ano, owner, balance);
 		
 		for(int i=0; i<accountArray.length; i++) { //전체 배열을 반복하면서 계좌를 생성함
-			if(accountArray[i] == null) {  // 계좌가 저자오디지 않는 인덱스에
+			// 0번 인덱스에 새 계좌가 저장되는 문제가 발생 -- 따라서 밑에 if 조건문을 넣어줌
+			if(accountArray[i] == null) {  // 계좌가 저장되지 않은 인덱스에
 				accountArray[i] = new Account(ano, owner, balance);  //계좌를 생성함
 				System.out.println("결과: 계좌가 생성되었습니다.");
 				break;
@@ -61,6 +67,7 @@ public class BankMain {
 		}
 		
 	}
+	
 	//계좌 목록을 출력하는 메서드
 	private static void getAccountList() {
 		for(int i=0; i<accountArray.length; i++) {
@@ -71,5 +78,69 @@ public class BankMain {
 				System.out.println("잔액: " + accountArray[i].getBalance());
 			}
 		}
+	}
+	
+	//계좌에 입금하는 메서드
+	private static void deposit() {
+		System.out.println("-------------------------------------------");
+		System.out.println("예금");
+		System.out.println("-------------------------------------------");
+		
+		System.out.print("계좌번호: ");
+		String ano = scanner.nextLine();
+		
+		System.out.print("입금액: ");
+		int money = Integer.parseInt(scanner.nextLine());
+		
+		if(findAccount(ano) != null) {  //null이 아니라는건 계좌를 찾았다는것
+			Account account = findAccount(ano);
+			//예금 = 잔고 + 예금액
+			account.setBalance(account.getBalance() + money);
+			System.out.println("결과 : 정상 처리 되었습니다.");
+		}else {
+			System.out.println("오류 : 일치하는 계좌가 없습니다.");
+		}
+	}
+	
+	//계좌에서 출금하는 메서드
+	private static void withdraw() {
+		System.out.println("-------------------------------------------");
+		System.out.println("출금");
+		System.out.println("-------------------------------------------");
+		
+		System.out.print("계좌번호: ");
+		String ano = scanner.nextLine();
+		
+		System.out.print("출금액: ");
+		int money = Integer.parseInt(scanner.nextLine());
+		
+		if(findAccount(ano) != null) {  //null이 아니라는건 계좌를 찾았다는것
+			Account account = findAccount(ano);
+			//출금 = 잔고 - 출금액
+			account.setBalance(account.getBalance() - money);
+			System.out.println("결과 : 정상 처리 되었습니다.");
+		}else {
+			System.out.println("오류 : 일치하는 계좌가 없습니다.");
+		}
+		
+	}
+	
+	//계좌를 검색하는 메서드
+	private static Account findAccount(String ano) {
+		Account account = null;	 //빈 계좌 계정을 할당
+		
+		for(int i=0; i<accountArray.length; i++) {
+			if(accountArray[i] != null) {  //없는 계좌를 입력하면 null 예외발생
+				String dbAno = accountArray[i].getAno();  //이미 저장된 계정
+				if(dbAno.equals(ano)) {  //문자열 비교 - equals() 사용
+					account = accountArray[i];  //계좌를 가져와 저장
+					break;  // 찾는 계좌와 일치하면 빠져나옴
+				}
+			}
+			
+		}
+		
+		return account;
+		
 	}
 }//Main 클래스 끝
