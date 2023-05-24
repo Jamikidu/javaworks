@@ -1,6 +1,7 @@
-package statics;
+package singleton.card;
 
 public class Card {
+	
 	static int serialNum = 100;	//클래스 변수, 정적 변수
 	int cardNum;		//카드번호(인스턴스 변수)
 	
@@ -9,7 +10,7 @@ public class Card {
 		cardNum = serialNum;
 	}
 	
-	int getcardNum(){
+	public int getcardNum(){
 		return cardNum;
 	}
 	
