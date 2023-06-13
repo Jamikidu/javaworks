@@ -9,8 +9,8 @@ public class FileCopy2 {
 
 	public static void main(String[] args) {
 		//이미지 파일을 읽고 쓰기(복사)
-		String originFile = "c:/file/bg0.jpg";	//원본 파일
-		String copyFile = "c:/file/bg2.jpg";	//사본 파일
+		String originFile = "c:/file/ojdbc8.jar";	//원본 파일
+		String copyFile = "c:/file/ojdbc8-2.jar";	//사본 파일
 		long start = 0, end = 0;
 		
 		try(FileInputStream fis = new FileInputStream(originFile);
