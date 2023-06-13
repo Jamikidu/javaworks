@@ -18,6 +18,8 @@ public class SingletonExample {
 		} else {
 			System.out.println("다른 Singleton 객체입니다.");
 		}
+		
+		System.out.println("깃 되냐?");
 	}
 
 }
