@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import banking.bankarray.Account;
 
-public class BankMain {
+public class MainApp {
 
 	public static void main(String[] args) {
 		AccountDAO dao = new AccountDAO();

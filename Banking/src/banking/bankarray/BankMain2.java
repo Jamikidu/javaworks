@@ -12,7 +12,7 @@ public class BankMain2 {
 		
 		while(run) {
 			System.out.println("-------------------------------------------");
-			System.out.println("1.계좌생성 | 2.계좌목록 | 3.입금 | 4.출금 | 5.검색");
+			System.out.println("1.계좌생성 | 2.계좌목록 | 3.입금 | 4.출금 | 5.종료");
 			System.out.println("-------------------------------------------");
 			System.out.print("선택> ");
 			
