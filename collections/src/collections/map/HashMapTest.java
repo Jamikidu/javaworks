@@ -19,11 +19,11 @@ public class HashMapTest {
 		
 		System.out.println("총 객체 수: " + map.size());
 		
-		//객체 1개 조회
+		//객체 1개 조회(점수) - get()
 		System.out.println(map.get("강감찬")); //75점 출력
 		
 		//객체 삭제 - key 통해서 삭제
-		if(map.containsKey("이순신")) {	//키가 존재하는지 확인
+		if(map.containsKey("이순신")) {	//키가 존재하는지 확인(true/false)
 			map.remove("이순신");
 		}
 		
